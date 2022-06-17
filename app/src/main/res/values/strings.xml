@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ispark Vallet App</string>
+    <string name="app_name">Ispark Valet App</string>
     <string name="LoginHeader">Login</string>
     <string name="ButtonLoginCaption">Login</string>
     <string name="ButtonRegisterCaption">Register/SignUp</string>
@@ -24,7 +24,7 @@
     <string name="GoogleWelcomeText">Welcome</string>
     <string name="GoogleEditText">To complete sign in, we require additional information</string>
     <string name="GoogleSubmitButton">Submit</string>
-    <string name="LoginPageHeader">ParkMe</string>
+    <string name="LoginPageHeader">ISPARK VALET APP</string>
     <string name="SignUpOtherText">Dont have an Account</string>
     <string name="EmailAddressHeader">Email Address</string>
     <string name="CarCompanyHeader">Car Company</string>
