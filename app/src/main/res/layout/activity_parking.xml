@@ -60,7 +60,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:backgroundTint="@android:color/white"
+                android:ems="10"
+                android:hint="Enter Plate Number"
+                android:inputType="number"
+                android:minHeight="48dp"
                 android:textColor="@android:color/background_light"
+                android:textColorHint="@android:color/white"
                 android:textSize="18sp" />
 
             <TextView
@@ -79,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:entries="@array/carName"
+                android:minHeight="48dp"
                 android:textColor="@android:color/background_light" />
 
             <TextView
@@ -97,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:entries="@array/carColor"
+                android:minHeight="48dp"
                 android:textColor="@android:color/background_light" />
 
             <TextView
@@ -118,6 +126,7 @@
                 android:ems="10"
                 android:hint="Enter Number of Hours"
                 android:inputType="number"
+                android:minHeight="48dp"
                 android:textColor="@android:color/background_light"
                 android:textColorHint="@android:color/white" />
 
@@ -172,7 +181,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:entries="@array/paymentMethod" />
+                android:entries="@array/paymentMethod"
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/parkingTxtLot"
