@@ -29,10 +29,6 @@ class ParkingReceiptActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking_receipt)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
 
         txtViewEmail = findViewById(R.id.txtVEmail)
         txtViewCarPlate = findViewById(R.id.textViewCarPlate)

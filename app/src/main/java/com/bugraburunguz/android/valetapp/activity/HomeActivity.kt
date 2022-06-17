@@ -6,7 +6,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -24,13 +23,11 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
     private lateinit var binding: ActivityHomeBinding
     private var mAuth: FirebaseAuth? = null
     private lateinit var drawerUsername: TextView
     private lateinit var drawerAccount: TextView
     private lateinit var headerView: View
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +39,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val profileB: ImageButton = findViewById(R.id.profileB)
         val textView2: TextView = findViewById(R.id.textView2)
         val textView3: TextView = findViewById(R.id.textView3)
-        val textViewEdt:TextView=findViewById(R.id.textViewEdit)
+        val textViewEdt: TextView = findViewById(R.id.textViewEdit)
 
-        // register all the card views with their appropriate IDs
         val paymentReceiptCard: CardView = findViewById(R.id.contributeCard)
         val parkLocationCard: CardView = findViewById(R.id.practiceCard)
         val learnCard: CardView = findViewById(R.id.learnCard)
@@ -52,14 +48,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val helpCard: CardView = findViewById(R.id.helpCard)
         val logoutCard: CardView = findViewById(R.id.settingsCard)
 
-
-        // handle each of the image buttons with the OnClickListener
-        backB.setOnClickListener {
-            Toast.makeText(this, "Back Button", Toast.LENGTH_SHORT).show()
-        }
-        logOutB.setOnClickListener {
-            Toast.makeText(this, "Logout Button", Toast.LENGTH_SHORT).show()
-        }
         profileB.setOnClickListener {
             val userProfileIntent = Intent(this@HomeActivity, ProfileActivity::class.java)
             startActivity(userProfileIntent)
@@ -68,8 +56,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val userProfileIntent = Intent(this@HomeActivity, ProfileActivity::class.java)
             startActivity(userProfileIntent)
         }
-
-        // handle each of the cards with the OnClickListener
         paymentReceiptCard.setOnClickListener {
             val paymentIntent = Intent(this@HomeActivity, ParkingActivity::class.java)
             startActivity(paymentIntent)
@@ -97,7 +83,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
             finish()
         }
-
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
@@ -132,8 +117,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 drawerUsername.text = userEntity1?.name
                 drawerAccount.text = userEntity1?.email
                 textView2.text = userEntity1?.name
-                textView3.text=userEntity1?.email
-
+                textView3.text = userEntity1?.email
             }
 
             override fun onCancelled(databaseError: DatabaseError) {}

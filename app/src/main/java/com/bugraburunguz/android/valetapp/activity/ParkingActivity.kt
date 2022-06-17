@@ -83,7 +83,7 @@ class ParkingActivity : AppCompatActivity(), View.OnClickListener {
                 val user1 = dataSnapshot.getValue(
                     UserEntity::class.java
                 )
-                Log.d("ProfileActivity", user1!!.email.toString())
+                Log.d("ProfileActivity", user1!!.email)
                 email?.text = user1.email
                 dateTime?.text = "$date $time"
             }

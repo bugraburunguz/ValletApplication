@@ -21,9 +21,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class LocationActivity : FragmentActivity(), OnMapReadyCallback {
     private var mMap: GoogleMap? = null
     private val mDefaultLocation = LatLng(43.773236, -79.4059391)
-    private val mDefaultLocationTest = LatLng(43.7774392, -79.336438)
     private var mLocationPermissionGranted = false
-
     private var mLastKnownLocation: Location? = null
 
     private var mFusedLocationProviderClient: FusedLocationProviderClient? = null
@@ -40,7 +38,6 @@ class LocationActivity : FragmentActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
 
         googleMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
         googleMap.uiSettings.isZoomGesturesEnabled = true
@@ -90,7 +87,6 @@ class LocationActivity : FragmentActivity(), OnMapReadyCallback {
 
     private val deviceLocation: Unit
         get() {
-
             try {
                 if (mLocationPermissionGranted) {
                     val locationResult = mFusedLocationProviderClient!!.lastLocation

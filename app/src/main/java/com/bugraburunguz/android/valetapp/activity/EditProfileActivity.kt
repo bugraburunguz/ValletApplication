@@ -2,7 +2,6 @@ package com.bugraburunguz.android.valetapp.activity
 
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
@@ -18,25 +17,25 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener {
     private var contact: EditText? = null
     private var city: Spinner? = null
     private var save: Button? = null
-    var strName: String? = ""
-    var strEmail: String? = ""
-    var strContact: String? = ""
-    var strCity: String? = ""
+    private var strName: String? = ""
+    private var strEmail: String? = ""
+    private var strContact: String? = ""
+    private var strCity: String? = ""
     private var mAuth: FirebaseAuth? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+
         name = findViewById(R.id.userProfileEditEtNameData)
         email = findViewById(R.id.userProfileEditEtEmailData)
         contact = findViewById(R.id.userProfileEditEtContactNumberData)
         city = findViewById(R.id.userProfileEditSpinnerCityData)
         save = findViewById(R.id.profileEditBtnSave)
+
         mAuth = FirebaseAuth.getInstance()
+
         save?.setOnClickListener(this)
+
         val intent = intent
         strName = intent.getStringExtra("name")
         strEmail = intent.getStringExtra("email")
@@ -60,7 +59,6 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.profileEditBtnSave -> {
-                //Save to firebase
                 val user = mAuth!!.currentUser
                 val userId = user!!.uid
                 val database = FirebaseDatabase.getInstance()

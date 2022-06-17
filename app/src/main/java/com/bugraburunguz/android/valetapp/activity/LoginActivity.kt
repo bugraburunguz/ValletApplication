@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener,
     var strEmail = ""
     var strPassword: String? = ""
     var mAuth: FirebaseAuth? = null
-    var googleApiClient: GoogleApiClient? = null
+    private var googleApiClient: GoogleApiClient? = null
 
     val TAG = LoginActivity::class.java.simpleName
     val RC_SIGN_IN = 9001
@@ -47,10 +47,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+
         mAuth = FirebaseAuth.getInstance()
         btnLogin = findViewById(R.id.loginBtnLogin)
         btnRegister = findViewById<Button>(R.id.loginBtnRegister)
@@ -107,12 +104,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener,
         }
     }
 
-    fun extractData() {
+    private fun extractData() {
         strEmail = edtEmail!!.text.toString()
         strPassword = edtPassword!!.text.toString()
     }
 
-    fun dataValidate(): Boolean {
+    private fun dataValidate(): Boolean {
         var isDataValid = true
         if (strEmail == "" || strPassword == "") {
             isDataValid = false
@@ -120,7 +117,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener,
         return isDataValid
     }
 
-    fun signIn() {
+    private fun signIn() {
         val signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient!!)
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
@@ -179,14 +176,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener,
                         Toast.LENGTH_SHORT
                     )
                         .show()
-
                 }
 
             }
     }
 
-
-    fun checkIfFirstTimeLogin() {
+    private fun checkIfFirstTimeLogin() {
         val userId = mAuth!!.uid
         val database = FirebaseDatabase.getInstance()
         val myRef = database.reference.child("User").child(userId!!)
@@ -203,7 +198,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener,
                 }
             }
 
-            override fun onCancelled(databaseError: DatabaseError) {}
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
         })
     }
 }

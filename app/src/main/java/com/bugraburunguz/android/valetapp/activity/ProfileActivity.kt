@@ -42,7 +42,7 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
                 val user1 = dataSnapshot.getValue(
                     UserEntity::class.java
                 )
-                Log.d("ProfileActivity", user1!!.email.toString())
+                Log.d("ProfileActivity", user1!!.email)
                 name.text = user1.name
                 email.text = user1.email
                 contactNumber.text = user1.number
